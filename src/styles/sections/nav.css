@@ -1,0 +1,16 @@
+/* NAV: fixed header with frosted glass on scroll + language switch */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+nav.scrolled{background:linear-gradient(180deg,rgba(11,20,48,.92),rgba(20,37,79,.85));backdrop-filter:blur(10px);box-shadow:0 6px 30px -12px rgba(0,0,0,.4);border-bottom:1px solid transparent;border-image:var(--g-tri) 1}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.logo b{font-family:var(--sans);font-weight:800;font-size:1.5rem;letter-spacing:.02em}
+.logo small{display:block;font-size:.58rem;letter-spacing:.18em;opacity:.8;font-weight:600}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.92rem;font-weight:500}
+.nav-links a:hover{color:#fff}
+.lang{display:flex;background:rgba(255,255,255,.12);border-radius:999px;padding:4px}
+.lang button{border:0;background:none;color:#fff;font:600 .8rem var(--sans);padding:7px 13px;border-radius:999px;cursor:pointer;opacity:.75}
+.lang button.on{background:var(--g-gold);color:var(--navy);opacity:1}
+
+@media (max-width:980px){.nav-links{display:none}}
+@media (max-width:640px){.logo small{display:none}}

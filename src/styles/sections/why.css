@@ -1,0 +1,10 @@
+/* WHY STORIES: dark quote band */
+.why-section{padding-top:0}
+.quote-band{color:#fff;border-radius:28px;padding:70px 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;background:radial-gradient(520px 320px at 92% 8%,rgba(31,138,138,.55),transparent 70%),radial-gradient(460px 320px at 0% 100%,rgba(242,165,22,.28),transparent 70%),var(--g-ink)}
+.quote-band::before{content:"\201C";position:absolute;font-family:var(--serif);font-size:22rem;line-height:1;top:-40px;left:20px;color:rgba(255,255,255,.05)}
+.quote-band h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+.quote-band p{color:rgba(255,255,255,.78);font-size:1.05rem}
+.quote-band p+p{margin-top:14px}
+
+@media (max-width:980px){.quote-band{grid-template-columns:1fr}}
+@media (max-width:640px){.quote-band{padding:44px 26px}}

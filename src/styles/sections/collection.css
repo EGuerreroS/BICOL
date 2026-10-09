@@ -1,0 +1,42 @@
+/* COLLECTION: book volumes, genres, culture & virtue explorers */
+.collection{background:linear-gradient(180deg,#fbf5e8 0%,#f1e4c9 50%,#fbf5e8 100%)}
+
+.vols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.vol{background:var(--g-card);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.vol-cover{padding:34px 34px 0;display:flex;justify-content:center}
+.vol-cover img{width:68%;border-radius:4px 10px 10px 4px;box-shadow:0 24px 40px -18px rgba(0,0,0,.45);transform:translateY(14px);transition:transform .35s}
+.vol:hover .vol-cover img{transform:translateY(4px) rotate(-1.5deg)}
+.vol.v1 .vol-cover{background:linear-gradient(180deg,var(--gold-soft),#fff)}
+.vol.v2 .vol-cover{background:linear-gradient(180deg,var(--teal-soft),#fff)}
+.vol.v3 .vol-cover{background:linear-gradient(180deg,var(--green-soft),#fff)}
+.vol-body{padding:34px 30px 30px}
+.vol-body .eyebrow{font-size:.7rem}
+.vol.v1 .eyebrow{color:#b67600}
+.vol.v2 .eyebrow{color:var(--teal)}
+.vol.v3 .eyebrow{color:var(--green)}
+.vol-body h3{font-size:1.4rem;margin:8px 0}
+.vol-body p{color:var(--muted);font-size:.95rem}
+
+.genres{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.genre{color:#fff;border-radius:14px;padding:22px 20px;text-align:center;box-shadow:0 14px 30px -18px rgba(20,37,79,.6)}
+.genre b{font-family:var(--serif);font-size:1.3rem;font-weight:600;display:block}
+.genre small{opacity:.75;font-size:.8rem}
+.genre:nth-child(1){background:var(--g-gold);color:var(--navy)}
+.genre:nth-child(2){background:var(--g-teal)}
+.genre:nth-child(3){background:var(--g-green)}
+.genre:nth-child(4){background:linear-gradient(135deg,#1d3570,#14254f 60%,#0b1430)}
+
+.explore{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+.explore-card{background:var(--g-card);border:1px solid var(--line);border-radius:var(--r);padding:34px}
+.explore-card h3{font-size:1.35rem;margin-bottom:6px}
+.explore-card>p{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+.tags.virtues span{background:linear-gradient(135deg,#fff3d6,#fbd98a);border-color:transparent;color:#6b4800}
+
+@media (max-width:980px){
+  .vols{grid-template-columns:1fr 1fr}
+  .explore{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .vols{grid-template-columns:1fr}
+  .genres{grid-template-columns:1fr 1fr}
+}

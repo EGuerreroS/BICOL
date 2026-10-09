@@ -1,0 +1,14 @@
+/* FOUNDER: framed portrait + bio */
+.founder{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;background:var(--g-card);border:1px solid var(--line);border-radius:28px;padding:56px}
+.portrait{width:280px;aspect-ratio:4/5;border-radius:22px;padding:4px;background:var(--g-tri);box-shadow:0 30px 60px -28px rgba(20,37,79,.7),0 0 0 10px rgba(242,165,22,.08);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;border-radius:18px;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.portrait:hover img{transform:scale(1.05)}
+.founder h3{font-size:2rem;margin:10px 0 4px}
+.founder .role{color:var(--coral);font-weight:600;margin-bottom:16px}
+.founder p{color:var(--muted);font-size:1.03rem;max-width:640px}
+
+@media (max-width:640px){
+  .founder{grid-template-columns:1fr;text-align:center;padding:40px 24px;gap:24px}
+  .portrait{width:200px;margin:0 auto}
+  .founder p{margin:0 auto}
+}

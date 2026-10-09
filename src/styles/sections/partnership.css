@@ -1,0 +1,13 @@
+/* PARTNERSHIP: UdG CUValles research lines */
+.partner-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start}
+.partner-grid .section-head{margin-bottom:0}
+.lines{display:grid;gap:16px}
+.line{overflow:hidden;display:grid;grid-template-columns:54px 1fr;gap:20px;background:var(--g-card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.line .num{width:54px;height:54px;border-radius:50%;color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:1.4rem;font-weight:600}
+.line:nth-child(1) .num{background:var(--g-gold);color:var(--navy)}
+.line:nth-child(2) .num{background:var(--g-teal)}
+.line:nth-child(3) .num{background:var(--g-green)}
+.line h3{font-size:1.25rem;margin-bottom:6px}
+.line p{color:var(--muted);font-size:.95rem}
+
+@media (max-width:980px){.partner-grid{grid-template-columns:1fr}}

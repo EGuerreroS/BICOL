@@ -1,0 +1,40 @@
+/* =========================================================
+   EFFECTS: scroll reveal, progress bar, particles, glyphs,
+   3D tilt and language crossfade
+   ========================================================= */
+
+/* Scroll progress bar */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--g-tri);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* Reveal on scroll (stagger delay --d is set by reveal.js) */
+.rv{opacity:0;transform:translateY(40px);filter:blur(8px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s ease;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none;filter:none}
+
+/* Containers that host a particle canvas / floating glyphs */
+.has-fx{position:relative;overflow:hidden}
+.has-fx>*:not(.fx){position:relative;z-index:1}
+.fx{position:absolute;inset:0;pointer-events:none;z-index:0}
+canvas.fx{width:100%;height:100%}
+
+/* Floating letters from many alphabets */
+.glyph{position:absolute;font-family:var(--serif);color:#fff;opacity:0;animation:drift linear infinite;user-select:none;will-change:transform}
+@keyframes drift{0%{opacity:0;transform:translateY(40px) rotate(0)}15%{opacity:var(--o)}85%{opacity:var(--o)}100%{opacity:0;transform:translateY(-120px) rotate(var(--r))}}
+
+/* 3D tilt + cursor sheen (vars set by interactions.js) */
+.tilt{position:relative;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out,opacity .9s ease,filter .9s ease}
+.rv.in.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.tilt::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(242,165,22,.16),transparent 60%);opacity:0;transition:opacity .3s}
+.tilt:hover::after{opacity:1}
+
+/* Language switch crossfade */
+.swap{animation:swap .45s ease}
+@keyframes swap{0%{opacity:.15;filter:blur(4px)}100%{opacity:1;filter:none}}
+
+/* Accessibility: honour reduced-motion preferences */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fx,.glyph{display:none}
+  .rv{filter:none;transform:none;opacity:1;transition:none}
+  .tilt,.rv.in.tilt{transform:none}
+  *{animation:none!important}
+}

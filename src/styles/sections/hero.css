@@ -1,0 +1,41 @@
+/* HERO: dark gradient, parallax copy, fanned book covers */
+.hero{background:radial-gradient(700px 520px at 88% 12%,rgba(31,138,138,.5),transparent 62%),radial-gradient(640px 520px at 6% 96%,rgba(242,165,22,.2),transparent 60%),radial-gradient(900px 600px at 50% 50%,rgba(76,122,46,.12),transparent 70%),var(--g-ink);color:#fff;padding:150px 0 120px}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(to bottom,#000,transparent);pointer-events:none;transform:translateY(calc(var(--sy,0) * .25px))}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+.hero-copy{transform:translateY(calc(var(--sy,0) * .22px));opacity:calc(1 - var(--sy,0) / 700)}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:600;margin:20px 0 24px}
+.hero p.lead{font-size:1.18rem;color:rgba(255,255,255,.8);max-width:540px;margin-bottom:36px}
+.hero .eyebrow{color:var(--gold)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.langs-row{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+
+/* Entrance animation */
+.hero .eyebrow,.hero h1,.hero .lead,.hero-ctas,.langs-row{animation:heroIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+.hero .eyebrow{animation-delay:.1s}
+.hero h1{animation-delay:.25s}
+.hero .lead{animation-delay:.45s}
+.hero-ctas{animation-delay:.6s}
+.langs-row{animation-delay:.75s}
+@keyframes heroIn{from{opacity:0;transform:translateY(30px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+
+/* Book covers: stacked, then fanned on load (.open); fan wider on scroll (--f) */
+.books{position:relative;height:520px;animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.book{position:absolute;width:56%;border-radius:6px 14px 14px 6px;box-shadow:-2px 0 0 rgba(0,0,0,.25) inset,0 30px 60px -20px rgba(0,0,0,.6);transition:transform 1.1s cubic-bezier(.2,.8,.2,1),left 1.1s cubic-bezier(.2,.8,.2,1)}
+.book.b1{left:2%;top:60px;z-index:1}
+.book.b2{left:22%;top:10px;z-index:3}
+.book.b3{left:44%;top:70px;z-index:2}
+.books:not(.open) .book{left:22%;transform:none}
+.books.open .b1{transform:rotate(calc(-9deg - var(--f,0) * 7deg)) translateX(calc(var(--f,0) * -36px))}
+.books.open .b2{transform:rotate(1deg) translateY(calc(var(--f,0) * -24px))}
+.books.open .b3{transform:rotate(calc(10deg + var(--f,0) * 7deg)) translateX(calc(var(--f,0) * 36px))}
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .books{height:420px;max-width:480px;margin:0 auto;width:100%}
+}
+@media (max-width:640px){
+  .hero{padding:120px 0 100px}
+  .books{height:330px}
+}
+@media (prefers-reduced-motion:reduce){.hero-copy{transform:none;opacity:1}}
